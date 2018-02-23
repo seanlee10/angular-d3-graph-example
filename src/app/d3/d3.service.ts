@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Node, Link, ForceDirectedGraph } from './models';
+import { Node, Link, ForceDirectedGraph, Tree } from './models';
 import * as d3 from 'd3';
 
 @Injectable()
@@ -62,7 +62,10 @@ export class D3Service {
   * This method does not interact with the document, purely physical calculations with d3
   */
   getForceDirectedGraph(nodes: Node[], links: Link[], options: { width, height }) {
-    const sg = new ForceDirectedGraph(nodes, links, options);
-    return sg;
+    return new ForceDirectedGraph(nodes, links, options);
+  }
+
+  getTree(treeData, options: { width, height }) {
+    return new Tree(treeData, options);
   }
 }

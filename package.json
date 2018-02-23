@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^1.7.1",
     "@angular/common": "^5.0.1",
     "@angular/compiler": "^5.0.1",
     "@angular/core": "^5.0.1",
@@ -25,7 +26,6 @@
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
-    "@angular/cli": "1.5.0",
     "@angular/compiler-cli": "^5.0.1",
     "@types/d3": "^4.4.1",
     "@types/node": "^6.0.60",
