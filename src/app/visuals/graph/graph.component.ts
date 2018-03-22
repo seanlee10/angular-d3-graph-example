@@ -1100,10 +1100,8 @@ export class GraphComponent implements OnInit {
       .attr('height', 1)
       .attr('patternUnits', 'objectBoundingBox')
       .append('image')
-      .attr('x', 0)
+      .attr('x', -20)
       .attr('y', 0)
-      .attr('width', 160)
-      .attr('height', 160)
       .attr('xlink:href', (d: any) => {
         return `http://dev.rdpresents.com.s3-website-us-east-1.amazonaws.com${d.data.photo}`;
       });
@@ -1194,10 +1192,10 @@ export class GraphComponent implements OnInit {
     nodeUpdate.select('rect.node')
       .attr('x', -80)
       .attr('width', 160)
-      .attr('height', 160)
+      .attr('height', 150)
       .style('fill', (d: any) => `url(#img_${d.data.uid})`)
-      // .style('stroke', (d: any) => d._children ? 'lightsteelblue' : 'lightgray')
-      // .style('stroke-width', 2)
+      .style('stroke', (d: any) => d._children ? 'lightsteelblue' : 'lightgray')
+      .style('stroke-width', 2)
       .attr('cursor', 'pointer');
 
     // Remove any exiting nodes
@@ -1236,7 +1234,7 @@ export class GraphComponent implements OnInit {
     linkUpdate.transition()
       .duration(this.duration)
       .attr('d', (d: any) => diagonal(d, d.parent))
-      .attr('stroke', 'lightgray')
+      .attr('stroke', 'darkgray')
       .attr('fill', 'transparent');
 
     // Remove any exiting links
@@ -1257,7 +1255,7 @@ export class GraphComponent implements OnInit {
     // Creates a curved (diagonal) path from parent to the child nodes
     function diagonal(s, d) {
       return `M ${s.x} ${s.y}
-            L ${d.x} ${d.y + 160}`;
+            L ${d.x} ${d.y + 150}`;
     }
   }
 
